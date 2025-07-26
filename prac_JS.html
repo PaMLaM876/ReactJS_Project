@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+    <h2>1) Format a Date</h2>
+    <input type="text" id="dateInput" placeholder="YYYY-MM-DD">
+    <button onclick="formatAndDisplayDate()">Format Date</button>
+    <p id="formattedDate"></p>
+
+    <h2>2) Process a Full Name</h2>
+    <input type="text" id="fullNameInput" placeholder="Enter full name">
+    <button onclick="processAndDisplayName()">Process Name</button>
+    <p><strong>Length:</strong> <span id="nameLength"></span></p>
+    <p><strong>Uppercase:</strong> <span id="upperName"></span></p>
+    <p><strong>First Name:</strong> <span id="firstName"></span></p>
+
+    <h2>3) Interactive Name Display</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="displayName()">Display Name</button>
+    <button onclick="changeColor()">Change Color</button>
+    <div id="nameDisplay"></div>
+
+    <script>
+        function formatAndDisplayDate() {
+            const dateString = document.getElementById("dateInput").value;
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById("formattedDate").textContent = date.toLocaleDateString('en-US', options);
+        }
+
+        function processAndDisplayName() {
+            const fullName = document.getElementById("fullNameInput").value;
+            document.getElementById("nameLength").textContent = fullName.length;
+            document.getElementById("upperName").textContent = fullName.toUpperCase();
+            document.getElementById("firstName").textContent = fullName.split(" ")[0];
+        }
+
+        function displayName() {
+            document.getElementById("nameDisplay").textContent = document.getElementById("nameInput").value;
+        }
+
+        function changeColor() {
+            document.getElementById("nameDisplay").style.color = "#" + Math.floor(Math.random()*16777777).toString(16);
+        }
+    </script>
+
+</body>
+</html>

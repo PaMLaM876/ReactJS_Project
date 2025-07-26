@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Shapes Learning Center - Courses</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Burbank Big Condensed Black', Arial, sans-serif;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: x-large;
+            font-family: "Arial", sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("preview.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        @font-face {
+            font-family: 'Burbank Big Condensed Black';
+            src: url('BurbankBigCondensedBlack.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .course-card .duration {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-card .price-tag {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .course-card ul {
+            list-style: none;
+            margin: 1rem 0;
+            padding: 0;
+            text-align: left;
+        }
+
+        .course-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .course-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            color: #1e3c72;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2rem;
+        }
+
+        .footer {
+            background-color: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Course Offerings</h1>
+        <p>Choose the perfect learning path for your geometry journey</p>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="registration.html">Register</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <h2 class="section-title">Available Courses</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>3D Shapes Basics</h3>
+                <div class="duration">Duration: 4 weeks</div>
+                <div class="price-tag">$199</div>
+                <ul>
+                    <li>Introduction to 3D geometry</li>
+                    <li>Basic properties of shapes</li>
+                    <li>Simple calculations</li>
+                    <li>Beginner-friendly examples</li>
+                </ul>
+                <a href="registration.html" class="btn">Enroll Now</a>
+            </div>
+
+            <div class="course-card">
+                <h3>Advanced Geometry</h3>
+                <div class="duration">Duration: 8 weeks</div>
+                <div class="price-tag">$299</div>
+                <ul>
+                    <li>Complex geometric principles</li>
+                    <li>Advanced transformations</li>
+                    <li>Mathematical proofs</li>
+                    <li>Advanced problem-solving</li>
+                </ul>
+                <a href="registration.html" class="btn">Enroll Now</a>
+            </div>
+
+            <div class="course-card">
+                <h3>Geometric Calculations</h3>
+                <div class="duration">Duration: 6 weeks</div>
+                <div class="price-tag">$249</div>
+                <ul>
+                    <li>Volume calculations</li>
+                    <li>Surface area formulas</li>
+                    <li>Optimization problems</li>
+                    <li>Practical applications</li>
+                </ul>
+                <a href="registration.html" class="btn">Enroll Now</a>
+            </div>
+
+            <div class="course-card">
+                <h3>Real-world Applications</h3>
+                <div class="duration">Duration: 6 weeks</div>
+                <div class="price-tag">$249</div>
+                <ul>
+                    <li>Engineering applications</li>
+                    <li>Architectural design</li>
+                    <li>3D modeling basics</li>
+                    <li>Case studies</li>
+                </ul>
+                <a href="registration.html" class="btn">Enroll Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 3D Shapes Learning Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - Geometric Shapes Learning Center</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("preview.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .success-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .success-icon {
+            color: #4CAF50;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background-color: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Registration Successful!</h1>
+        <p>Welcome to Geometric Shapes Learning Center</p>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learning-dashboard.html">My Dashboard</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h2>Thank You for Registering!</h2>
+            <p>Your registration has been completed successfully. You now have access to our comprehensive learning materials.</p>
+            <p>You can now:</p>
+            <a href="learning-dashboard.html" class="btn">Access Your Learning Dashboard</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Geometric Shapes Learning Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

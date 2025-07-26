@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Quiz - Geometric Shapes Learning Center</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Burbank Big Condensed Black', Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: 'Burbank Big Condensed Black';
+            src: url('BurbankBigCondensedBlack.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("preview.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.5s ease;
+        }
+
+        .header:hover {
+            background: linear-gradient(135deg, #2a5298, #1e3c72);
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .nav a.active {
+            background-color: #1e3c72;
+            color: white;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .question-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .options-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border: 2px solid #e3e8f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-label:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .option-label.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .option-label.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        input[type="radio"] {
+            margin-right: 1rem;
+            transform: scale(1.2);
+        }
+
+        .submit-button, .reset-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .submit-button:hover, .reset-button:hover {
+            background-color: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .result-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .explanation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .theme-switch:hover {
+            transform: rotate(180deg);
+        }
+
+        body.dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .nav {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-theme .nav a {
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .question-card,
+        body.dark-theme .result-card {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        body.dark-theme .option-label {
+            background-color: #3d3d3d;
+            border-color: #555;
+        }
+
+        body.dark-theme .option-label:hover {
+            background-color: #4d4d4d;
+        }
+
+        .footer {
+            background-color: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch" id="themeSwitch" title="Toggle dark/light theme">🌓</div>
+
+    <header class="header">
+        <h1>Geometric Shapes Quiz</h1>
+        <p>Test and Enhance Your Geometric Knowledge</p>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="registration.html">Register</a></li>
+            <li><a href="quiz.html" class="active">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="quiz-container">
+        <div id="score-container" class="result-card">
+            <h2 class="score-display">Your Score: <span id="score">0</span>/8</h2>
+        </div>
+
+        <form id="quiz-form">
+            <div class="question-card" id="q1-card">
+                <p class="question-text">1. What is the formula for the volume of a cube?</p>
+                <div class="options-group">
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q1" value="a" required>
+                        side³
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="b">
+                        6 × side²
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="c">
+                        4 × side²
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" value="d">
+                        2 × side³
+                    </label>
+                </div>
+                <div class="explanation" id="q1-explanation">
+                    The volume of a cube is calculated by multiplying the side length by itself three times (cubing it).
+                </div>
+            </div>
+
+            <div class="question-card" id="q2-card">
+                <p class="question-text">2. How many faces does a cylinder have?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="a" required>
+                        1 face
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q2" value="b">
+                        3 faces
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="c">
+                        4 faces
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" value="d">
+                        2 faces
+                    </label>
+                </div>
+                <div class="explanation" id="q2-explanation">
+                    A cylinder has three faces: two circular bases and one curved lateral surface.
+                </div>
+            </div>
+
+            <div class="question-card" id="q3-card">
+                <p class="question-text">3. What is the surface area formula for a sphere?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="a" required>
+                        2πr²
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q3" value="b">
+                        4πr²
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="c">
+                        πr²
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" value="d">
+                        3πr²
+                    </label>
+                </div>
+                <div class="explanation" id="q3-explanation">
+                    The surface area of a sphere is calculated using the formula 4πr², where r is the radius.
+                </div>
+            </div>
+
+            <div class="question-card" id="q4-card">
+                <p class="question-text">4. Which shape has a circular base and a single vertex?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="a" required>
+                        Cylinder
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="b">
+                        Sphere
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q4" value="c">
+                        Cone
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" value="d">
+                        Cube
+                    </label>
+                </div>
+                <div class="explanation" id="q4-explanation">
+                    A cone has a circular base and tapers to a single point (vertex) at the top.
+                </div>
+            </div>
+
+            <div class="question-card" id="q5-card">
+                <p class="question-text">5. What is the volume formula for a cylinder?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="a" required>
+                        πr
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="b">
+                        2πrh
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q5" value="c">
+                        πr²h
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" value="d">
+                        4πr²
+                    </label>
+                </div>
+                <div class="explanation" id="q5-explanation">
+                    The volume of a cylinder is calculated by multiplying the base area (πr²) by its height.
+                </div>
+            </div>
+
+            <div class="question-card" id="q6-card">
+                <p class="question-text">6. How many vertices does a tetrahedron have?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="a" required>
+                        2 vertices
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="b">
+                        4 vertices
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q6" value="c">
+                        4 vertices
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q6" value="d">
+                        6 vertices
+                    </label>
+                </div>
+                <div class="explanation" id="q6-explanation">
+                    A tetrahedron is a three-dimensional shape with 4 triangular faces and 4 vertices.
+                </div>
+            </div>
+
+            <div class="question-card" id="q7-card">
+                <p class="question-text">7. What is the volume formula for a cone?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="a" required>
+                        πr²h
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q7" value="b">
+                        (1/3)πr²h
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="c">
+                        2πr²h
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q7" value="d">
+                        4πr²/3
+                    </label>
+                </div>
+                <div class="explanation" id="q7-explanation">
+                    The volume of a cone is calculated by multiplying the base area by 1/3, which is (1/3)πr²h.
+                </div>
+            </div>
+
+            <div class="question-card" id="q8-card">
+                <p class="question-text">8. What is a polyhedron?</p>
+                <div class="options-group">
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="a" required>
+                        A two-dimensional shape
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="b">
+                        A curved three-dimensional shape
+                    </label>
+                    <label class="option-label" data-correct="true">
+                        <input type="radio" name="q8" value="c">
+                        A three-dimensional shape with flat faces
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q8" value="d">
+                        A shape with only curved surfaces
+                    </label>
+                </div>
+                <div class="explanation" id="q8-explanation">
+                    A polyhedron is a three-dimensional geometric solid composed of flat polygonal faces, straight edges, and sharp vertices.
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button" id="submit-btn">Submit Quiz</button>
+            <button type="button" class="reset-button hidden" id="reset-btn">Try Again</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Geometric Shapes Learning Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizForm = document.getElementById('quiz-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const scoreDisplay = document.getElementById('score');
+            const scoreContainer = document.getElementById('score-container');
+            const themeSwitch = document.getElementById('themeSwitch');
+            
+            const correctAnswers = {
+                'q1': 'a',
+                'q2': 'b',
+                'q3': 'b',
+                'q4': 'c',
+                'q5': 'c',
+                'q6': 'c',
+                'q7': 'b',
+                'q8': 'c'
+            };
+            
+            quizForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const allInputs = quizForm.querySelectorAll('input[type="radio"]');
+                allInputs.forEach(input => input.disabled = true);
+                
+                submitBtn.classList.add('hidden');
+                resetBtn.classList.remove('hidden');
+                
+                let score = 0;
+                
+                for (let i = 1; i <= 8; i++) {
+                    const questionName = `q${i}`;
+                    const selectedOption = quizForm.elements[questionName].value;
+                    const correctOption = correctAnswers[questionName];
+                    
+                    const explanation = document.getElementById(`${questionName}-explanation`);
+                    explanation.classList.remove('hidden');
+                    
+                    const optionLabels = document.querySelectorAll(`input[name="${questionName}"]`);
+                    optionLabels.forEach(input => {
+                        const label = input.parentElement;
+                        
+                        if (input.value === correctOption) {
+                            label.classList.add('correct');
+                        } else if (input.checked && input.value !== correctOption) {
+                            label.classList.add('incorrect');
+                        }
+                    });
+                    
+                    if (selectedOption === correctOption) {
+                        score++;
+                    }
+                }
+                
+                scoreDisplay.textContent = score;
+                scoreContainer.style.display = 'block';
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            resetBtn.addEventListener('click', function() {
+                const allInputs = quizForm.querySelectorAll('input[type="radio"]');
+                allInputs.forEach(input => {
+                    input.disabled = false;
+                    input.checked = false;
+                });
+                
+                const optionLabels = document.querySelectorAll('.option-label');
+                optionLabels.forEach(label => {
+                    label.classList.remove('correct', 'incorrect');
+                });
+                
+                const explanations = document.querySelectorAll('.explanation');
+                explanations.forEach(exp => exp.classList.add('hidden'));
+                
+                scoreContainer.style.display = 'none';
+                
+                submitBtn.classList.remove('hidden');
+                resetBtn.classList.add('hidden');
+            });
+            
+            themeSwitch.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                if (document.body.classList.contains('dark-theme')) {
+                    themeSwitch.textContent = '☀️';
+                } else {
+                    themeSwitch.textContent = '🌓';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

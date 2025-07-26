@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Shapes Library - Learning Center</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("preview.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .shapes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .shape-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .shape-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .shape-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .shape-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            min-height: 4.8em;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            color: #1e3c72;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2rem;
+        }
+
+        .shape-details {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .shape-details h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .shape-details ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .shape-details li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .shape-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e3c72;
+        }
+
+        .formula-section {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .formula-section p {
+            color: #1e3c72;
+            font-family: "Courier New", monospace;
+            margin: 0.5rem 0;
+        }
+
+        .footer {
+            background-color: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Geometric Shapes Library</h1>
+        <p>Explore and master geometric shapes</p>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="learning-dashboard.html">My Dashboard</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="shapes-grid">
+            <div class="shape-card">
+                <h3>Cube</h3>
+                <p>A perfect three-dimensional square with equal sides and right angles throughout.</p>
+                <div class="shape-details">
+                    <h4>Properties:</h4>
+                    <ul>
+                        <li>6 equal square faces</li>
+                        <li>12 equal edges</li>
+                        <li>8 vertices</li>
+                    </ul>
+                    <div class="formula-section">
+                        <p>Volume = side³</p>
+                        <p>Surface Area = 6 × side²</p>
+                    </div>
+                    <a href="cube-details.html" class="btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="shape-card">
+                <h3>Sphere</h3>
+                <p>A perfectly round three-dimensional object where every point on the surface is equidistant from the center.</p>
+                <div class="shape-details">
+                    <h4>Properties:</h4>
+                    <ul>
+                        <li>Infinite symmetry</li>
+                        <li>No edges or vertices</li>
+                        <li>Perfect roundness</li>
+                    </ul>
+                    <div class="formula-section">
+                        <p>Volume = (4/3)πr³</p>
+                        <p>Surface Area = 4πr²</p>
+                    </div>
+                    <a href="sphere-details.html" class="btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="shape-card">
+                <h3>Cylinder</h3>
+                <p>A three-dimensional solid with circular bases connected by a curved surface.</p>
+                <div class="shape-details">
+                    <h4>Properties:</h4>
+                    <ul>
+                        <li>2 circular bases</li>
+                        <li>1 curved surface</li>
+                        <li>No vertices</li>
+                    </ul>
+                    <div class="formula-section">
+                        <p>Volume = πr²h</p>
+                        <p>Surface Area = 2πr² + 2πrh</p>
+                    </div>
+                    <a href="cylinder-details.html" class="btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="shape-card">
+                <h3>Cone</h3>
+                <p>A three-dimensional shape with a circular base connected to a point by a curved surface.</p>
+                <div class="shape-details">
+                    <h4>Properties:</h4>
+                    <ul>
+                        <li>1 circular base</li>
+                        <li>1 curved surface</li>
+                        <li>1 vertex</li>
+                    </ul>
+                    <div class="formula-section">
+                        <p>Volume = (1/3)πr²h</p>
+                        <p>Surface Area = πr² + πrs</p>
+                    </div>
+                    <a href="cone-details.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Geometric Shapes Learning Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

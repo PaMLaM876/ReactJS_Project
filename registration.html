@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Shapes Learning Center - Registration</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Burbank Big Condensed Black', Arial, sans-serif;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: x-large;
+            font-family: "Arial", sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("preview.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        @font-face {
+            font-family: 'Burbank Big Condensed Black';
+            src: url('BurbankBigCondensedBlack.otf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .header, .footer {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .nav {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #1e3c72;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav a:hover {
+            background-color: #e3e8f0;
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .registration-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .section-title {
+            color: #1e3c72;
+            margin: 1.5rem 0;
+            font-size: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e3c72;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .required {
+            color: #ff4444;
+            margin-left: 0.2rem;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .terms {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
+
+        .terms input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2a5298;
+            transform: translateY(-2px);
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+            <img src="file (1).png" alt="Logo" style="height: 120px;">
+            <div>
+                <h1>Geometric Shapes Learning Center</h1>
+                <p style="font-family:'Arial',sans-serif;">Begin your journey into Geometric geometry</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="registration.html">Register</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="registration-section">
+            <form id="registrationForm" action="thank-you.html" method="GET">
+                <h2 class="section-title">Personal Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group" id="firstNameGroup">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName">
+                        <div id="firstNameError" class="error-message">Please enter your first name</div>
+                    </div>
+                    
+                    <div class="form-group" id="lastNameGroup">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName">
+                        <div id="lastNameError" class="error-message">Please enter your last name</div>
+                    </div>
+                </div>
+
+                <div class="form-group" id="emailGroup">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="text" id="email" name="email">
+                    <div id="emailError" class="error-message">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group" id="phoneGroup">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone">
+                    <div id="phoneError" class="error-message">Please enter a valid phone number</div>
+                </div>
+
+                <h2 class="section-title">Course Selection</h2>
+                
+                <div class="form-group" id="courseGroup">
+                    <label for="course">Select Course <span class="required">*</span></label>
+                    <select id="course" name="course">
+                        <option value="">Choose a course...</option>
+                        <option value="basics">Geometric Shapes Basics ($199)</option>
+                        <option value="advanced">Advanced Geometry ($299)</option>
+                        <option value="calculations">Geometric Calculations ($249)</option>
+                        <option value="applications">Real-world Applications ($249)</option>
+                    </select>
+                    <div id="courseError" class="error-message">Please select a course</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Prior Experience Level</label>
+                    <select id="experience" name="experience">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="goals">Learning Goals</label>
+                    <textarea id="goals" name="goals" placeholder="What do you hope to achieve from this course?"></textarea>
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the terms and conditions <span class="required">*</span></label>
+                    <div id="termsError" class="error-message">You must agree to the terms and conditions</div>
+                </div>
+
+                <button type="submit" class="btn">Complete Registration</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Geometric Shapes Learning Center. All rights reserved.</p>
+    </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('registrationForm');
+        
+        function showError(elementId, errorMessageId) {
+            const elementGroup = document.getElementById(elementId + 'Group');
+            const errorMessage = document.getElementById(errorMessageId);
+            
+            // Add null checks
+            if (elementGroup) {
+                elementGroup.classList.add('error');
+            }
+            if (errorMessage) {
+                errorMessage.style.display = 'block';
+            }
+        }
+    
+        function hideError(elementId, errorMessageId) {
+            const elementGroup = document.getElementById(elementId + 'Group');
+            const errorMessage = document.getElementById(errorMessageId);
+            
+            // Add null checks
+            if (elementGroup) {
+                elementGroup.classList.remove('error');
+            }
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }
+    
+        function validateFirstName() {
+            const firstName = document.getElementById('firstName').value.trim();
+            if (firstName === '') {
+                showError('firstName', 'firstNameError');
+                return false;
+            }
+            hideError('firstName', 'firstNameError');
+            return true;
+        }
+    
+        function validateLastName() {
+            const lastName = document.getElementById('lastName').value.trim();
+            if (lastName === '') {
+                showError('lastName', 'lastNameError');
+                return false;
+            }
+            hideError('lastName', 'lastNameError');
+            return true;
+        }
+    
+        function validateEmail() {
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('email', 'emailError');
+                return false;
+            }
+            hideError('email', 'emailError');
+            return true;
+        }
+    
+        function validatePhone() {
+            const phone = document.getElementById('phone').value.trim();
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                showError('phone', 'phoneError');
+                return false;
+            }
+            hideError('phone', 'phoneError');
+            return true;
+        }
+    
+        function validateCourse() {
+            const course = document.getElementById('course').value;
+            if (course === '') {
+                showError('course', 'courseError');
+                return false;
+            }
+            hideError('course', 'courseError');
+            return true;
+        }
+    
+        function validateTerms() {
+            const termsCheckbox = document.getElementById('terms');
+            const termsError = document.getElementById('termsError');
+            
+            // Add null checks
+            if (!termsCheckbox || !termsError) {
+                console.error('Terms checkbox or error element not found');
+                return false;
+            }
+            
+            if (!termsCheckbox.checked) {
+                showError('terms', 'termsError');
+                return false;
+            }
+            hideError('terms', 'termsError');
+            return true;
+        }
+    
+        // Ensure form exists before adding event listener
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                // Prevent default submission initially
+                event.preventDefault();
+    
+                // Validate all fields
+                const isFirstNameValid = validateFirstName();
+                const isLastNameValid = validateLastName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isCourseValid = validateCourse();
+                const isTermsValid = validateTerms();
+    
+                // If all validations pass, allow form submission
+                if (isFirstNameValid && isLastNameValid && isEmailValid && 
+                    isPhoneValid && isCourseValid && isTermsValid) {
+                    form.submit();
+                }
+            });
+    
+            // Add blur event listeners
+            document.getElementById('firstName')?.addEventListener('blur', validateFirstName);
+            document.getElementById('lastName')?.addEventListener('blur', validateLastName);
+            document.getElementById('email')?.addEventListener('blur', validateEmail);
+            document.getElementById('phone')?.addEventListener('blur', validatePhone);
+            document.getElementById('course')?.addEventListener('change', validateCourse);
+            document.getElementById('terms')?.addEventListener('change', validateTerms);
+        } else {
+            console.error('Registration form not found');
+        }
+    });
+    </script>
+</body>
+</html>
